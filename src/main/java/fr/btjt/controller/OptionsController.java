@@ -28,6 +28,11 @@ public class OptionsController {
         return optionsService.getAll();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "army/{idArmy}")
+    public List<Options> findByIdArmy(@PathVariable("idArmy") Integer idArmy){
+        return optionsService.findByIdArmy(idArmy);
+    }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/{idTypeOption}")
     public Options update(@RequestBody Options options, @PathVariable("idTypeOption") Integer idTypeOption){
         return optionsService.update(options);

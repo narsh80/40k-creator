@@ -1,5 +1,8 @@
 package fr.btjt.domain;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 /**
@@ -66,7 +69,8 @@ public class ArmyOptions {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.JOIN)
     @JoinColumn(name = "idArmy", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public Army getArmy() {
         return army;

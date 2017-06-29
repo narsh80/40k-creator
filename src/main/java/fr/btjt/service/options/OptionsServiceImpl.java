@@ -32,6 +32,11 @@ public class OptionsServiceImpl extends AbstractService implements OptionsServic
     }
 
     @Override
+    public List<Options> findByIdArmy(Integer idArmy) {
+        return optionRepository.findByidArmy(idArmy);
+    }
+
+    @Override
     public Options update(Options options) {
         options.getArmyOptions().stream().forEach(armyOptions -> {
             armyOptionRepository.save(armyOptions);

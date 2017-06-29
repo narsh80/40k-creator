@@ -1,5 +1,8 @@
 package fr.btjt.domain;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -159,11 +162,11 @@ public class Options {
     }
 
     @OneToMany(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
     @JoinColumn( name="idOptions", nullable=false, insertable = false, updatable = false)
     public Collection<ArmyOptions> getArmyOptions() {
         return armyOptions;
     }
-
     public void setArmyOptions(Collection<ArmyOptions> armyOptions) {
         this.armyOptions = armyOptions;
     }

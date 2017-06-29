@@ -13,6 +13,8 @@ public interface OptionsService {
 
     List<Options> getAll();
 
+    List<Options> findByIdArmy(Integer idArmy);
+
     Options update(Options options);
 
     void delete(Integer idoption);
